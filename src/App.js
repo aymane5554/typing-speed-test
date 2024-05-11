@@ -8,16 +8,26 @@ var letter_count = 0;
 var correct_letters = 0;
 var word_count = 0;
 var words = []
+var displayed_words = 4 ;
+if(window.screen.width >= 800){
+    displayed_words = 6;
+}
+if(window.screen.width >= 1000){
+    displayed_words = 10;
+}
+if(window.screen.width >= 1400){
+    displayed_words = 14;
+}
 
 function display_words(){
     document.getElementById("text").innerHTML = "";
     if(word_count == 0){
-        for(let i = word_count ; i<word_count+20;i++){
+        for(let i = word_count ; i<word_count+displayed_words;i++){
             document.getElementById("text").innerHTML += `<span id="word${i}">${words[i]}</span>`;
         }
     }
     else{
-        for(let i = word_count ; i<word_count+20;i++){
+        for(let i = word_count ; i<word_count+displayed_words;i++){
             document.getElementById("text").innerHTML += `<span id="word${i}">${words[i]}</span>`;
         }
     }
@@ -80,7 +90,9 @@ function App(){
                     wrong_letters += val.length-words[word_count].length;
                 }
                 word_count++;
-                
+            }
+            if(word_count % (displayed_words/2) == 0){
+                display_words();
             }
         }
     }
