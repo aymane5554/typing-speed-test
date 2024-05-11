@@ -1,0 +1,53 @@
+body{
+  font-family: Monospace;
+  color: beige;
+  background-color: midnightblue;
+}
+
+h1{
+  font-size: 3em;
+}
+
+span::after{
+  content: " ";
+}
+
+#rehead{
+  font-size: 3em;
+}
+
+input{
+  width: 50%;
+  padding: 10px;
+  font-size: 2em;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  font-family: monospace;
+}
+#text{
+  font-size: 2em;
+  margin-bottom: 20px;
+  border: 1px solid lightblue;
+  padding: 20px;
+  border-radius: 10px;
+}
+.labels,.wrong,.correct{
+  font-size: 2em;
+}
+.wrong{
+  color: red;
+}
+.correct{
+  color: green;
+}
+#generate{
+  padding: 10px;
+  font-size: 1em;
+}
+
+#text{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
