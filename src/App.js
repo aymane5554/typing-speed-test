@@ -8,14 +8,12 @@ var letter_count = 0;
 var correct_letters = 0;
 var word_count = 0;
 var words = []
-var letters = "";
 
 function display_words(){
     document.getElementById("text").innerHTML = "";
     if(word_count == 0){
         for(let i = word_count ; i<word_count+20;i++){
             document.getElementById("text").innerHTML += `<span id="word${i}">${words[i]}</span>`;
-            letters+=words[i];
         }
     }
     else{
@@ -57,9 +55,7 @@ function App(){
         if(e.target.value !== " "){
             setVal(e.target.value);
         }
-    }
-    const inputKeyPress = (e)=>{
-        if (e.key === " "){
+        if (e.target.value[e.target.value.length-1] === " "){
             if(words[word_count] === val){
                 document.getElementById(`word${word_count}`).style.color = "green"; 
                 document.getElementById(`word${word_count}`).style.textDecoration = "none";
@@ -87,10 +83,8 @@ function App(){
                 
             }
         }
-        if(word_count%9 == 0){
-            display_words();
-        }
     }
+    
 
     if(x===0){
         fetch("https://random-word-api.herokuapp.com/word?number=200")
@@ -104,7 +98,7 @@ function App(){
     }
     return(
         <center>
-            <input type="text" id="t" disabled placeholder="start typing ..." value={val} onKeyDown={(e)=>inputKeyPress(e)} onChange={(e) => {change_val(e);}} autoFocus/>
+            <input type="text" id="t" disabled placeholder="start typing ..." value={val} onChange={(e) => {change_val(e);}} autoFocus/>
             {result}
         </center>
     )
