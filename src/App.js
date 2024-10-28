@@ -99,7 +99,7 @@ function App(){
     
 
     if(x===0){
-        fetch("https://random-word-api.herokuapp.com/word?number=200")
+        fetch("https://random-word-api.vercel.app/api?words=200")
         .then(response=>response.json())
         .then(data =>{
         words=data; 
